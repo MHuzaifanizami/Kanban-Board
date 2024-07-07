@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in</title>
+    <!-- CSS link  -->
+    <link rel="stylesheet" href="signIn.css">
+    <!-- Bootstrap link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ** Header Start ** -->
+
+    <div class="header-container w-100 bg-success px-3">
+        <header class="d-flex justify-content-between p-2">
+            <!-- ** LOGO  ** -->
+            <a href="">
+                <img src="../assets/coding.png" alt="Logo">
+            </a>
+            <!-- ** Header End ** -->
+
+            <!-- ** SIgn In & LOg in Btns ** -->
+            <div class="sign-btns d-flex gap-2 align-items-center fs-5">
+                <!-- <button class="sign-in-btns" type="" id="sign-in">Sign In </button> -->
+                <button class="sign-in-btns" type="" id="log-in">Log In</button>
+
+            </div>
+        </header>
+    </div>
+
+    <!-- ** Header End ** -->
+
+    <!-- ** Form Section Start ** -->
+    <div class="signin-container ">
+        <div class="signin-form rounded">
+
+            <!-- Sign In Heading  -->
+            <h1 class="text-center text-white">Sign In</h1>
+
+            <!-- form start  -->
+
+            <label for="Username">User Name</label>
+            <input type="text" id="r-name" name="username" placeholder="Enter your Name">
+
+            <label for="email">Email</label>
+            <input type="email" id="r-email" name="email" placeholder="Enter Your Email">
+
+            <label for="password">Password</label>
+            <input type="password" id="r-password" name="password" placeholder="Enter Your Password">
+
+            <button class="signinBtn" onclick="signIn()">Sign In</button>
+
+        </div>
+    </div>
+
+    <!-- ** Form Section End ** -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>

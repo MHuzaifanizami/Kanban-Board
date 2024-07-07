@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ** Header Area Start ** */
+
+header img {
+    width: 55px;
+}
+
+
+.sign-in-btns {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: ease-in;
+    transition-duration: 0.2s;
+}
+
+
+.sign-in-btns:hover {
+    background-color: #72bba2;
+    color: #fff;
+}
+
+
+/* ** Header Area End ** */
+
+/* ** Form section start ** */
+
+.signin-form {
+    width: 600px;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #198754;
+    color: #fff;
+    padding: 10px 19px;
+}
+
+.signin-form label {
+    display: block;
+    font-size: 1.4rem;
+
+}
+
+.signin-form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin: 10px;
+}
+
+.signinBtn {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    margin-top: 15px;
+    background-color: #fff;
+    font-size: 1.2rem;
+}
+
+
+.signinBtn:hover {
+    background-color: #72bba2;
+    color: #fff;
+    transition: ease-in-out;
+    transition-duration: 0.4s;
+}
+
+/* ** Form section end ** */

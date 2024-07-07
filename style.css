@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ** Header Area Start ** */
+
+header img {
+    width: 55px;
+}
+
+
+.sign-in-btns {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: ease-in;
+    transition-duration: 0.2s;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    background-color: #eaeaea;
+}
+
+
+.sign-in-btns:hover {
+    background-color: #72bba2;
+    color: #fff;
+}
+
+
+/* ** Header Area End ** */
