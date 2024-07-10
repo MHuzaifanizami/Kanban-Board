@@ -19,6 +19,10 @@ header img {
     outline: none;
     transition: ease-in;
     transition-duration: 0.2s;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    background-color: #eaeaea;
 }
 
 
@@ -31,14 +35,16 @@ header img {
 /* ** Header Area End ** */
 
 /* ** Form section start ** */
-
+.signin-container{
+    width: 100%;
+}
 .signin-form {
-    width: 600px;
+    width: 50%;
     margin: auto;
     margin-top: 2rem;
     background-color: #198754;
     color: #fff;
-    padding: 10px 19px;
+    padding: 25px;
 }
 
 .signin-form label {
@@ -78,3 +84,36 @@ header img {
 }
 
 /* ** Form section end ** */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    
+   
+    header img {
+        width: 55px;
+    }
+
+    .sign-in-btns {
+        width: 80px; 
+        height: 35px; 
+        font-size: 20px; 
+    }
+
+    .signin-form{
+        width: 90%;
+        margin: auto ;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+        /* height: 70vh; */
+    }
+    .signin-container{
+        padding-top: 8rem;
+        width: 100%;
+        background-color: #eaeaea;
+        height: 100vh;
+        margin-top: 0;
+    }
+}

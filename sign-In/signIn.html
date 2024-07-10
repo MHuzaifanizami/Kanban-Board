@@ -25,7 +25,8 @@
             <!-- ** SIgn In & LOg in Btns ** -->
             <div class="sign-btns d-flex gap-2 align-items-center fs-5">
                 <!-- <button class="sign-in-btns" type="" id="sign-in">Sign In </button> -->
-                <button class="sign-in-btns" type="" id="log-in">Log In</button>
+
+               <a href="../log-in/login.html" class="sign-in-btns" id="log-in">Log In</a>
 
             </div>
         </header>
@@ -34,7 +35,7 @@
     <!-- ** Header End ** -->
 
     <!-- ** Form Section Start ** -->
-    <div class="signin-container ">
+    <div class="signin-container">
         <div class="signin-form rounded">
 
             <!-- Sign In Heading  -->
@@ -49,7 +50,7 @@
             <input type="email" id="r-email" name="email" placeholder="Enter Your Email">
 
             <label for="password">Password</label>
-            <input type="password" id="r-password" name="password" placeholder="Enter Your Password">
+            <input type="password" id="r-password" name="password"      placeholder="Enter Your Password" value="" autocomplete="new-password">
 
             <button class="signinBtn" onclick="signIn()">Sign In</button>
 
@@ -57,7 +58,11 @@
     </div>
 
     <!-- ** Form Section End ** -->
+
+    <!-- Sweet Alert LInk  -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Javascript LInk  -->
     <script src="/app.js"></script>
 </body>
 
