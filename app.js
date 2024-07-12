@@ -108,13 +108,6 @@ function logIn() {
         });
         return;
     }
-    // else {
-    //     swal({
-    //         title: "Log in Successfully! ",
-    //         icon: "success"
-    //     });
-
-
 
     if (userData) {
         userData = JSON.parse(userData)
@@ -134,19 +127,46 @@ function logIn() {
             swal({
                 title: "Log In Successfuly",
                 icon: "success",
-              });
-              email.value = "";
-              password.value = "";
+            });
+            email.value = "";
+            password.value = "";
         } else {
             swal({
                 title: "Invalid Password",
                 icon: "error",
-              });
+            });
         }
     } else {
         swal({
             title: "User Not Found",
             icon: "error",
-          });
+        });
     }
+}
+
+
+// ****  Kanban Board functions ****
+
+// ** Add Task function **
+
+function addTask() {
+    let taskTitle = document.getElementById("recipient-name").value;
+    let taskDescription = document.getElementById("message-text").value;
+    let list = document.getElementById("list");
+
+
+    list.innerHTML += `<li class='task-li'>
+     <h4>Title</h4>
+          <h5>${taskTitle}</h5>
+          <h4 class="mt-3">Description : </h4>
+          <p>${taskDescription}</p>
+          <h5>Status : <span>Add Task</span></h5>
+          <button onclick='deleteTask()'><i class="fa-solid fa-xmark"></i></button>
+    <li>`
+}
+
+// ** Delete Task function **
+function deleteTask() {
+    let taskList = document.querySelector(".task-li");
+    taskList.innerHTML = ""
 }
