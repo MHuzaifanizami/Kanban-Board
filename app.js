@@ -1,4 +1,4 @@
-// ** Sign In Function **  //
+//************ */ ** Sign In Function **  ***************************//
 function signIn() {
     var name = document.getElementById("r-name");
     var email = document.getElementById("r-email");
@@ -75,7 +75,7 @@ function signIn() {
 }
 
 
-//  ** Log In Function ** //
+//****************** */  ** Log In Function ** ************************//
 
 function logIn() {
     var email = document.getElementById("l-email");
@@ -128,6 +128,7 @@ function logIn() {
                 title: "Log In Successfuly",
                 icon: "success",
             });
+            window.location.href = "../board/board.html";
             email.value = "";
             password.value = "";
         } else {
@@ -142,31 +143,116 @@ function logIn() {
             icon: "error",
         });
     }
+
+
 }
 
 
-// ****  Kanban Board functions ****
+//****************** */  ** Log out Function ** ************************//
+function logOut(){
+    localStorage.removeItem(userData);
+    window.location.href = "../index.html";
+}
 
-// ** Add Task function **
+
+
+
+
+
+
+// ****  ************* Kanban Board functions ****   *****************
+
+// **  ********************** Add Task function ** *****************
 
 function addTask() {
     let taskTitle = document.getElementById("recipient-name").value;
     let taskDescription = document.getElementById("message-text").value;
-    let list = document.getElementById("list");
+    let todoList = document.getElementById("todo-list");
+    let progressList = document.getElementById("in-progress-list");
+    let doneList = document.getElementById("done-list");
+    let status = document.getElementById("task-list-select").value;
 
 
-    list.innerHTML += `<li class='task-li'>
-     <h4>Title</h4>
-          <h5>${taskTitle}</h5>
-          <h4 class="mt-3">Description : </h4>
-          <p>${taskDescription}</p>
-          <h5>Status : <span>Add Task</span></h5>
-          <button onclick='deleteTask()'><i class="fa-solid fa-xmark"></i></button>
-    <li>`
+    if (taskTitle == "" && taskDescription == "") {
+        swal({
+            title: "Input Is Empty",
+            text: "Kindly Fill The input-field",
+            icon: "warning"
+        });
+    } 
+    else {
+
+        let taskId = new Date().getTime();
+
+        if (status == "Add Task") {
+            todoList.innerHTML += `<li id="${taskId}" class='task-li' draggable="true" ondragstart="drag(event)">
+        <h4>Title</h4>
+        <h5>${taskTitle}</h5>
+        <h4 class="mt-3">Description:</h4>
+        <p>${taskDescription}</p>
+        <h5>Status:</h5>
+        <p>${status}</p>
+        <button onclick='deleteTask(${taskId})'><i class="fa-solid fa-xmark"></i></button>
+    </li>`;
+            taskDescription = "";
+            taskTitle = ""
+
+        } else if (status == "In Progress") {
+            progressList.innerHTML += `<li id="${taskId}" class='task-li' draggable="true" ondragstart="drag(event)">
+        <h4>Title</h4>
+        <h5>${taskTitle}</h5>
+        <h4 class="mt-3">Description:</h4>
+        <p>${taskDescription}</p>
+        <h5>Status:</h5>
+        <p>${status}</p>
+        <button onclick='deleteTask(${taskId})'><i class="fa-solid fa-xmark"></i></button>
+    </li>`;
+            taskDescription = "";
+            taskTitle = ""
+
+        }else if(status == "Done Task"){
+            doneList.innerHTML += `<li id="${taskId}" class='task-li' draggable="true" ondragstart="drag(event)">
+            <h4>Title</h4>
+            <h5>${taskTitle}</h5>
+            <h4 class="mt-3">Description:</h4>
+            <p>${taskDescription}</p>
+            <h5>Status:</h5>
+            <p>${status}</p>
+            <button onclick='deleteTask(${taskId})'><i class="fa-solid fa-xmark"></i></button>
+        </li>`;
+    }
+}
+document.getElementById("recipient-name").value = "";
+document.getElementById("message-text").value = "";
 }
 
-// ** Delete Task function **
-function deleteTask() {
-    let taskList = document.querySelector(".task-li");
-    taskList.innerHTML = ""
+// **** ******************* Drag And Drop Functions **** *************
+function allowDrop(event) {
+    event.preventDefault();
 }
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+    event.target.classList.add("dragging");
+}
+
+function drop(event) {
+    event.preventDefault();
+    let data = event.dataTransfer.getData("text");
+    let task = document.getElementById(data);
+    task.classList.remove("dragging");
+    event.target.closest(".dropzone").querySelector(".task-list").appendChild(task);
+}
+
+// ** ***************** Delete Task function ** **********************
+function deleteTask(taskId) {
+    let task = document.getElementById(taskId);
+    if (task) {
+        task.remove();
+    } else {
+        console.error("Task not found or taskId is incorrect.");
+    }
+}
+
+
+

@@ -29,7 +29,7 @@
       <!-- **  Log out Btns ** -->
       <div class="logout-btns d-flex gap-2 align-items-center fs-5">
 
-        <a href="../log-in/login.html" class="log-out-btns" id="log-out">
+        <a href="../log-in/login.html" class="log-out-btns" id="log-out" onclick="logOut()">
           <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i>
         </a>
       </div>
@@ -40,89 +40,105 @@
 
   <!-- ** Board Area Start ** -->
 
-  <div class="board-container d-flex justify-content-center align-items-center gap-3">
-    <div class="boxes add-task">
+  <div class="board-container d-flex justify-content-center  gap-3">
+    <!-- Add task box  -->
+    <div class="boxes add-task dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
       <div class="title">
         <h1>Todo</h1>
       </div>
 
-      <ul id="list" class="ml-0" draggable="true">
-        <!-- <li>
-          <h4>Title</h4>
-          <h5>Heelo</h5>
-          <h4 class="mt-3">Description : </h4>
-          <p>Hello world ishghtyutyutyutyutututuytuty hjtutyu yuutyuyt fgytu</p>
-          <h5>Status : <span>Add Task</span></h5>
-          <button><i class="fa-solid fa-xmark"></i></button>
-        </li> -->
+      <ul id="todo-list" class="task-list">
+
       </ul>
+
       <button class="box-btn add-task-btn" data-toggle="modal" data-target="#exampleModal">
         <i class="fa-solid fa-plus"></i>
         <span>Add Task</span>
       </button>
-      <!-- Modal code start here  -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Title:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">Description:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addTask()">Add Task</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-
-    <div class="boxes progress-task">
+    <!-- In progress box  -->
+    <div class="boxes add-task dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
       <div class="title">
         <h1>In Progrss</h1>
       </div>
 
-      <button class="box-btn in-progrss-btn">
+      <ul id="in-progress-list" class="task-list">
+
+      </ul>
+
+      <button class="box-btn in-progrss-btn" data-toggle="modal" data-target="#exampleModal">
         <i class="fa-solid fa-plus"></i>
         <span>Add Progress Task</span>
       </button>
     </div>
 
-
-    <div class="boxes done-task">
+    <!-- Done box  -->
+    <div class="boxes add-task dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
       <div class="title">
         <h1>Done</h1>
       </div>
 
-      <button class="box-btn done-btn">
+      <ul id="done-list" class="task-list">
+
+      </ul>
+
+      <button class="box-btn done-btn"  data-toggle="modal" data-target="#exampleModal">
         <i class="fa-solid fa-plus"></i>
         <span>Add Done Task</span>
       </button>
     </div>
   </div>
-<!-- Bootstrap link  -->
+
+
+  <!-- Modal code start here  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+            <div class="status d-flex justify-content-between">
+            <label for="task-list-select"> <h5>Status:</h5></label>
+            <select id="task-list-select">
+              <option value="Add Task">Add Task</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Done Task">Done</option>
+            </select>
+          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addTask()">Add Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap link  -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- Javascript link  -->
-   <script src="../app.js"></script>
+  <script src="../app.js"></script>
+
+  <!-- Sweet Alert LInk  -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

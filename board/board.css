@@ -40,6 +40,7 @@ header img {
     width: 100%;
     min-height: 90vh;
     padding: 15px;
+    padding-top: 50px;
     flex-wrap: wrap;
     background-color: #eaeaea;
 }
@@ -47,8 +48,9 @@ header img {
 .boxes {
 
     border-radius: 8px;
-    width: 420px;
+    width: 30%;
     min-height: 300px;
+    height: fit-content;
     background-color: #fff;
     position: relative;
 
@@ -83,11 +85,12 @@ header img {
     color: #000;
 }
 
-#list {
+.task-list {
     width: 100%;
     margin-left: 0;
     margin-bottom: 46px;
-   
+    padding-left: 0 !important;
+
 }
 
 .task-li {
@@ -99,10 +102,16 @@ header img {
     margin: auto;
     margin-bottom: 15px;
     border-radius: 8px;
-    
+    cursor: move;
+
 }
 
-.task-li button{
+.task-li.dragging {
+    opacity: 0.5;
+    /* Style for dragging element */
+}
+
+.task-li button {
     width: 100%;
     border: none;
     padding: 5px 8px;
@@ -112,6 +121,15 @@ header img {
     font-size: 20px;
 }
 
-.task-li button:hover{
+.task-li button:hover {
     background-color: #239f65;
 }
+
+/* .dropzone {
+     border: 2px dashed #ccc;
+     padding: 10px;
+    width: 30%;
+    min-height: 200px;
+    background-color: #f9f9f9; 
+}  */
+
