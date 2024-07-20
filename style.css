@@ -70,3 +70,33 @@ header img {
     }
 
 }
+
+
+
+/* footer section start  */
+
+.footer_section {
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+  }
+  
+  .footer_section p {
+    color: #f9fcfb;
+    margin: 0;
+    text-align: center;
+    padding: 20px 15%;
+    border-top: 1px solid #f9fcfb;
+  }
+  
+  .footer_section a {
+    color: #f9fcfb;
+  }
+  
+  /* footer section end  */
+  

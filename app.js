@@ -149,7 +149,8 @@ function logIn() {
 
 
 //****************** */  ** Log out Function ** ************************//
-function logOut(){
+function logOut(e) {
+
     localStorage.removeItem(userData);
     window.location.href = "../index.html";
 }
@@ -179,7 +180,7 @@ function addTask() {
             text: "Kindly Fill The input-field",
             icon: "warning"
         });
-    } 
+    }
     else {
 
         let taskId = new Date().getTime();
@@ -210,7 +211,7 @@ function addTask() {
             taskDescription = "";
             taskTitle = ""
 
-        }else if(status == "Done Task"){
+        } else if (status == "Done Task") {
             doneList.innerHTML += `<li id="${taskId}" class='task-li' draggable="true" ondragstart="drag(event)">
             <h4>Title</h4>
             <h5>${taskTitle}</h5>
@@ -220,10 +221,10 @@ function addTask() {
             <p>${status}</p>
             <button onclick='deleteTask(${taskId})'><i class="fa-solid fa-xmark"></i></button>
         </li>`;
+        }
     }
-}
-document.getElementById("recipient-name").value = "";
-document.getElementById("message-text").value = "";
+    document.getElementById("recipient-name").value = "";
+    document.getElementById("message-text").value = "";
 }
 
 // **** ******************* Drag And Drop Functions **** *************
